@@ -8,6 +8,7 @@ banned = ['pop', 'dö', 'auschwitz', 'fan', 'kaka', 'jesus', 'satan', 'aids', 't
 
 words_re = re.compile("|".join(banned))
 client = commands.Bot(command_prefix=',')
+client.remove_command('help')
 
 
 @client.event
