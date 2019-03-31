@@ -11,12 +11,12 @@ client = commands.Bot(command_prefix=',')
 
 
 @client.event
-async def on_ready():
+  async def on_ready():
     print("I'm in")
     print(client.user)
     
  @client.command(pass_context=True)
-async def help(ctx):
+  async def help(ctx):
     author = ctx.message.author
     
     embed = discord.Embed(
@@ -26,15 +26,13 @@ async def help(ctx):
     embed.set_author(name='Help')
     embed.add_field(name='.ping', value='Returns Pong!', inline=True)
     embed.add_field(name='.clear (value)', value='The Value Is The Amount Of Messages You Want To Delete.', inline=True)
-    embed.add_field(name='.', value='', inline=True)
-    embed.add_field(name='., value='', inline=True)
     
     await client.say("I Have Sent You A DM With All Of The Information.")
 
     await client.send_message(author, embed=embed)
 
 @client.command(pass_context=True)
-async def clear(ctx, amount=50):
+  async def clear(ctx, amount=50):
     if str(ctx.message.author.id) == '239719341958889473' :
         channel = ctx.message.channel
         messages = []
@@ -47,7 +45,7 @@ async def clear(ctx, amount=50):
         await client.say("<@%s> : ⛔️ | Bot Owner only!" % (userID))
 
 @client.commands
-async def on_message(message):
+  async def on_message(message):
     print(message.author,": ", message.channel)
     print()
     if message.author != client.user:
